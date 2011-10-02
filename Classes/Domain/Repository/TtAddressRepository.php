@@ -25,11 +25,11 @@ class Tx_SniNewsletterSubscription_Domain_Repository_TtAddressRepository extends
 
 	/**
 	 * Sucht in tt_address nach $email.
+	 * Normale Extbase PID Einstellungen greifen für tt_address Datensätze. Es kann somit nicht zu Konflikt mit anderen Extensions kommen kann die auch tt_address verwenden ...
 	 * @param boolean $enableFields falls FALSE dann wird nur deleted=0 berücksichtigt (hidden wird ignoriert)
 	 */
 	public function findEmail($email,$enableFields=TRUE,$getFirst=TRUE) {
-		$query = $this->createQuery();
-		$query->getQuerySettings()->setRespectStoragePage(FALSE);
+		$query = $this->createQuery();		
 		$constraints = Array();
 		if(!$enableFields) {
 			$query->getQuerySettings()->setRespectEnableFields(FALSE);
@@ -47,7 +47,6 @@ class Tx_SniNewsletterSubscription_Domain_Repository_TtAddressRepository extends
 
 	public function findAlsoHiddenByUid($uid) {
 		$query = $this->createQuery();
-		$query->getQuerySettings()->setRespectStoragePage(FALSE);
 		$query->getQuerySettings()->setRespectEnableFields(FALSE);
 		$query->matching($query->logicalAnd(
 			$query->equals('deleted',0),
