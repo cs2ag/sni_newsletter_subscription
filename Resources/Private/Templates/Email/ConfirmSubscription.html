@@ -1,0 +1,17 @@
+{namespace sni=Tx_SniNewsletterSubscription_ViewHelpers}
+<html>
+<head>
+	<title>{f:translate(key: 'subscribeMailTitle', arguments: { 0: '{settings.siteName}'})}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<f:render partial="Style" />
+</head>
+<body style="font-size: 12px; font-family: Arial, Helvetica, sans-serif; font-weight: normal; color: #000;">
+	<f:render partial="Style" />
+    <p style="padding-bottom: 15px;">{f:translate(key: 'subscribeMailGreeting', arguments: {0: '{subscriber.firstName}'})}</p>
+	<p>{f:translate(key: 'subscribeMailMsgConfirm')}<br />
+	<sni:link noCacheHash="TRUE" additionalParams="{confirmParams}" absolute="TRUE" /></p>
+	<p>{f:translate(key: 'subscribeMailMsgDelete')}<br />
+	<sni:link noCacheHash="TRUE" additionalParams="{deleteParams}" absolute="TRUE" /></p>
+	<p style="font-size: 11px; padding-top: 15px; font-style: italic;">{f:translate(key: 'subscribeMailBye', htmlEscape: 'FALSE', arguments: {0: '{settings.siteName}'})}</p>
+</body>
+</html>

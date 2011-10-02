@@ -1,0 +1,30 @@
+plugin.tx_sninewslettersubscription {
+	view {
+		templateRootPath = {$plugin.tx_sninewslettersubscription.view.templateRootPath}
+		partialRootPath = {$plugin.tx_sninewslettersubscription.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_sninewslettersubscription.view.layoutRootPath}
+	}
+	persistence {
+		storagePid = {$plugin.tx_sninewslettersubscription.persistence.storagePid}
+		classes {
+			Tx_SniNewsletterSubscription_Domain_Model_TtAddress {
+				mapping {
+					tableName = tt_address
+				}
+			}
+			Tx_SniNewsletterSubscription_Domain_Model_User {
+				mapping {
+					tableName = fe_users
+				}
+			}
+			Tx_SniNewsletterSubscription_Domain_Model_DmailCategory {
+				mapping {
+					tableName = sys_dmail_category
+				}
+			}
+		}
+	}
+	settings {
+		module_sys_dmail_category_PIDLIST = 
+	}
+}

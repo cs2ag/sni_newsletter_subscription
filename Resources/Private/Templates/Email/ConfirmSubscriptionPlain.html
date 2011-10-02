@@ -1,0 +1,11 @@
+{namespace sni=Tx_SniNewsletterSubscription_ViewHelpers}
+{f:translate(key: 'subscribeMailGreeting', arguments: {0: '{subscriber.firstName}'})}
+
+{f:translate(key: 'subscribeMailMsgConfirm')}
+<sni:link noCacheHash="TRUE" additionalParams="{confirmParams}" absolute="TRUE" />
+
+{f:translate(key: 'subscribeMailMsgDelete')}
+<sni:link noCacheHash="TRUE" additionalParams="{deleteParams}" absolute="TRUE" />
+
+
+{f:translate(key: 'subscribeMailBye',  htmlEscape: 'FALSE', arguments: {0: '{settings.siteName}'})}

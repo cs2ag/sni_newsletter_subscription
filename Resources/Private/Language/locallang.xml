@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for the Sni Courses extension in the FRONTEND</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="subscribeTitle">Subscribe to our newsletter</label>
+			<label index="subsrcibeLegend">Fill in the information below to subscribe to our newsletter:</label>
+			<label index="firstName">First name</label>
+			<label index="lastName">Surname</label>
+			<label index="email">E-Mail</label>
+			<label index="moduleSysDmailHtml">Receive HTML e-mails?</label>
+			<label index="subscribeSubmit">Subscribe</label>
+			<label index="addressError.firstName.1221560718">Please insert your first name!</label>
+			<label index="addressError.email.1221560718">Please insert your email address!</label>
+			<label index="addressError.email.1221559976">Please insert a valid email address!</label>
+			<label index="addressError.email.1308671052">You are already subscribed to our newsletter!</label>
+			<label index="category.1308821626">Please select at least 1 category!</label>
+			<label index="subscribeSuccess">Confirmation email send!</label>
+			<label index="subscribeSuccessMsg"><![CDATA[Your request for newsletter subscription was successfull. We send you a confirmation mail to your email address <strong>%s</strong>. In order to receive our newsletter you have to <strong>confirm your subscription</strong> by clicking the confirmation link in the mail.]]></label>
+			<label index="subscribeMailTitle">Confirm your newsletter subscription - %s</label>
+			<label index="subscribeMailGreeting">Hi %s,</label>
+			<label index="subscribeMailMsgConfirm">You successfully subscribed to our newsletter. Please confirm your subscription by clicking the following link:</label>
+			<label index="subscribeMailMsgDelete">If you never subscribed to our newsletter or you think this is an error please click the following link to delete your subscription:</label>
+			<label index="subscribeMailBye"><![CDATA[Sincerly,<br />Your %s Team]]></label>
+			<label index="subscribeError">Error!</label>
+			<label index="subscribeErrorMsg">This link is not valid anymore! Please verify that you inserted the url correctly.</label>
+			<label index="subscribeConfirm">Subscription confirmed!</label>
+			<label index="subscribeConfirmMsg"><![CDATA[You successfully confirmed the newsletter subscription. We will send you the newsletters to your email address <strong>%s</strong>]]></label>
+			<label index="subscribeDelete">Subscription deleted!</label>
+			<label index="subscribeDeleteMsg"><![CDATA[You successfully refused the newsletter subscription. You won't receive any further newsletters from us!]]></label>
+			<label index="moduleSysDmailCategory">Receive news on any of these subjects?</label>
+		</languageKey>
+		<languageKey index="it" type="array">
+			<label index="subscribeTitle">Iscriviti alla Newsletter</label>
+			<label index="subsrcibeLegend">Compila seguenti campi per iscriverti alla nostra newsletter:</label>
+			<label index="firstName">Nome</label>
+			<label index="lastName">Cognome</label>
+			<label index="email">Email</label>
+			<label index="moduleSysDmailHtml">Vuoi ricevere le email in HTML?</label>
+			<label index="subscribeSubmit">Iscriviti</label>
+			<label index="addressError.firstName.1221560718">Inserisci il tuo nome!</label>
+			<label index="addressError.email.1221560718">Inserisci tuo indirizzo email!</label>
+			<label index="addressError.email.1221559976">E' necessario un indirizzo email valido!</label>
+			<label index="addressError.email.1308671052">Sei giá iscritto alla nostra newsletter!</label>
+			<label index="category.1308821626">Prego selezioni almeno 1 categoria!</label>
+			<label index="subscribeSuccess">Conferma iscrizione inviata!</label>
+			<label index="subscribeSuccessMsg"><![CDATA[Per ricever nostra Newsletter devi ancora <strong>confermare la iscrizione</strong>. Il link di conferma trovi nella mail che ti abbiamo appena mandato all' indirizzo <strong>%s</strong>.]]></label>
+			<label index="subscribeMailTitle">Conferma iscrizione alla Newsletter - %s</label>
+			<label index="subscribeMailGreeting">Ciao %s,</label>
+			<label index="subscribeMailMsgConfirm">Per ricevere nostra Newsletter clicca sul seguente link (o incolla nel Browser):</label>
+			<label index="subscribeMailMsgDelete">Oppure se non vuoi ricevere nostra Newsletter o pensi che questa Mail sia un errore clicca sul seguente link (o incolla nel Browser):</label>
+			<label index="subscribeMailBye"><![CDATA[Cordiali saluti,<br />Tuo %s Team]]></label>
+			<label index="subscribeError">Errore!</label>
+			<label index="subscribeErrorMsg">Questo link non é piú valido! Prego assicurati che hai inserito un link corretto!</label>
+			<label index="subscribeConfirm">Iscrizione alla Newsletter confermata!</label>
+			<label index="subscribeConfirmMsg"><![CDATA[Ti sei iscritto con successo alla nostra Newsletter. Riveverai la Newsletter all' indirizzo email <strong>%s</strong>.]]></label>
+			<label index="subscribeDelete">Iscrizione alla Newsletter rifiutata!</label>
+			<label index="subscribeDeleteMsg"><![CDATA[Hai con successo rifiutato la iscrizione alla Newsletter. Non riceverai piú Newsletter da noi!]]></label>
+			<label index="moduleSysDmailCategory">Vuoi ricevere news riguardo qualcuno dei seguenti argomenti?</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="subscribeTitle">Abonniere unseren Newsletter</label>
+			<label index="subsrcibeLegend">Fülle folgende Informationen aus um unseren Newsletter zu abonnieren:</label>
+			<label index="firstName">Vorname</label>
+			<label index="lastName">Nachname</label>
+			<label index="email">E-Mail</label>
+			<label index="moduleSysDmailHtml">Willst du HTML-E-Mails erhalten?</label>
+			<label index="subscribeSubmit">Abonnieren</label>
+			<label index="addressError.firstName.1221560718">Bitte gib deinen Vornamen ein!</label>
+			<label index="addressError.email.1221560718">Bitte gib deine E-Mail Adresse ein!</label>
+			<label index="addressError.email.1221559976">Bitte gib eine gültige E-Mail Adresse ein!</label>
+			<label index="addressError.email.1308671052">Du erhälst bereits unseren Newsletter!</label>
+			<label index="category.1308821626">Bitte wähle mindestens eine Kategorie aus!</label>
+			<label index="subscribeSuccess">Bestätigungs-Mitteilung versendet!</label>
+			<label index="subscribeSuccessMsg"><![CDATA[Um das Newsletter Abonnement abzuschließen musst du dein <strong>Abonnement bestätigen</strong>. Den Bestätigungslink findest du in der Bestätigungs-Mitteilung welche wir soeben per Email an die Adresse <strong>%s</strong> gesendet haben.]]></label>
+			<label index="subscribeMailTitle">Bestätige dein Newsletter Abbonement - %s</label>
+			<label index="subscribeMailGreeting">Hallo %s,</label>
+			<label index="subscribeMailMsgConfirm">Um unseren Newsletter zu abonnieren musst du folgenden Link öffnen (anklicken oder in das Browserfenster kopieren):</label>
+			<label index="subscribeMailMsgDelete">Wenn du unseren Newsletter nicht abonnieren möchtest oder diese Mail für einen Irrtum hälst öffne bitte folgenden Link (anklicken oder in das Browserfenster kopieren):</label>
+			<label index="subscribeMailBye"><![CDATA[Mit freundlichen Grüssen,<br />Dein %s Team]]></label>
+			<label index="subscribeError">Fehler!</label>
+			<label index="subscribeErrorMsg">Dieser Link ist nicht mehr gültig! Bitte vergewissere dich dass du einen korrekten Link eingegeben hast.</label>
+			<label index="subscribeConfirm">Newsletter Abonnement bestätigt!</label>
+			<label index="subscribeConfirmMsg"><![CDATA[Du hast dich erfolgreich an unserem Newsletter angemeldet. Du erhältst von nun an unseren Newsletter auf der E-Mail Adresse <strong>%s</strong>.]]></label>
+			<label index="subscribeDelete">Newsletter Abbonement gelöscht!</label>
+			<label index="subscribeDeleteMsg"><![CDATA[Du hast dich erfolgreich an unserem Newsletter abgemeldet. Du wirst von nun an keinen Newsletter mehr von uns bekommen!]]></label>
+			<label index="moduleSysDmailCategory">Möchtest du Nachrichten zu folgenden Themen erhalten?</label>
+		</languageKey>
+	</data>
+</T3locallang>

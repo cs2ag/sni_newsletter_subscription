@@ -1,0 +1,12 @@
+<div class="subsrResult">
+	<f:if condition="{error}">
+		<f:then>
+			<h1>{f:translate(key: 'subscribeError')}</h1>
+			<p>{f:translate(key: 'subscribeErrorMsg', htmlEscape: 'FALSE')}</p>
+		</f:then>
+		<f:else>
+			<h1>{f:translate(key: 'subscribeDelete')}</h1>
+			<p>{f:translate(key: 'subscribeDeleteMsg', arguments: {0: '{subscriber.email}'}, htmlEscape: 'FALSE')}</p>
+		</f:else>
+	</f:if>
+</div>

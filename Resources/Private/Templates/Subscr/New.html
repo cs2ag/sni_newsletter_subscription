@@ -1,0 +1,49 @@
+{namespace sni=Tx_SniNewsletterSubscription_ViewHelpers}
+<div class="subscribe">
+	<h1><f:translate key="subscribeTitle" /></h1>
+	<fieldset>
+		<legend><f:translate key="subsrcibeLegend" /></legend>
+		<f:form method="post" action="create" name="newAddress" object="{newAddress}">
+			<div>
+				<f:form.errors for="newAddress.firstName">
+					<p class="error">
+						<f:translate key="addressError.firstName.{error.code}" default="{error.message} (#{error.code})" />
+					</p>
+				</f:form.errors>
+				<label for="firstName"><f:translate key="firstName" /> <span>*</span>:</label>
+				<f:form.textfield id="firstName" property="firstName" />
+			</div>
+			<div>
+				<label for="lastName"><f:translate key="lastName" />:</label>
+				<f:form.textfield id="lastName" property="lastName" />
+			</div>
+			<div>
+				<f:form.errors for="newAddress.email">
+					<p class="error">
+						<f:translate key="addressError.email.{error.code}" default="{error.message} (#{error.code})" />
+					</p>
+				</f:form.errors>
+				<label for="email"><f:translate key="email" /> <span>*</span>:</label>
+				<f:form.textfield id="email" property="email" />
+			</div>
+			<div>
+				<label for="moduleSysDmailHtml"><f:translate key="moduleSysDmailHtml" /></label>
+				<f:form.checkbox class="check" id="moduleSysDmailHtml" name="moduleSysDmailHtml" value="1" checked="{f:if(condition: '{gp.moduleSysDmailHtml}', then: 'checked', else: '{f:if(condition: \'{firstCall}\', then: \'checked\')}')}"/>
+			</div>
+			<div>
+				<f:form.errors for="moduleSysDmailCategory">
+					<p class="error">
+						<f:translate key="category.{error.code}" default="{error.message} (#{error.code})" />
+					</p>
+				</f:form.errors>
+				<label for="moduleSysDmailCategory"><f:translate key="moduleSysDmailCategory" /></label>
+				<f:for each="{categories}" as="category">
+					<f:form.checkbox class="check" id="moduleSysDmailHtml" name="moduleSysDmailCategory[{category.uid}]" value="{category.uid}" checked="{f:if(condition: '{sni:array(arr: \'{gp.moduleSysDmailCategory}\', key: \'{category.uid}\')}', then: 'checked', else: '{f:if(condition: \'{firstCall}\', then: \'checked\')}')}"/> {category.category}<br/>
+				</f:for>
+			</div>
+			<div>
+				<f:form.submit class="submit submit-mtop" name="address_submit" value="{f:translate(key: 'subscribeSubmit')}" />
+			</div>
+		</f:form>
+	</fieldset>
+</div>
