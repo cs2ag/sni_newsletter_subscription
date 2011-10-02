@@ -47,6 +47,7 @@ class Tx_SniNewsletterSubscription_Domain_Repository_TtAddressRepository extends
 
 	public function findAlsoHiddenByUid($uid) {
 		$query = $this->createQuery();
+		$query->getQuerySettings()->setRespectStoragePage(FALSE); // ohne dieser Anweisung werden versteckte Elemente nicht gefunden! (auch wenn PID stimmt) - Extbase Bug?
 		$query->getQuerySettings()->setRespectEnableFields(FALSE);
 		$query->matching($query->logicalAnd(
 			$query->equals('deleted',0),
