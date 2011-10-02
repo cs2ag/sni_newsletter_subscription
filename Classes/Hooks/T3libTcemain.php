@@ -44,9 +44,9 @@ class Tx_SniNewsletterSubscription_Hooks_T3libTcemain {
     function processDatamap_postProcessFieldArray($status, $table, $id, &$fieldArray, &$pObj){
         global $BE_USER;
         if($table=='fe_users' ) {
-			if(t3lib_div::validEmail($fieldArray['email']) && (string)$fieldArray['email'] && strlen($BE_USER->userTS["sni_newsletter_subscription."]["addressPid"]) > 0) {
-				t3lib_div::devLog('A BE-User created manually a fe_user or changed an email address of a fe_user. Delete all tt_address records with same email address ('.($BE_USER->userTS["sni_newsletter_subscription."]["addressPid"] ? 'where tt_address pid='.$BE_USER->userTS["sni_newsletter_subscription."]["addressPid"] : 'NO PID CHECK').')','sni_newsletter_subscription',1,$fieldArray);
-				Tx_SniNewsletterSubscription_Hooks_SrFeuserRegister::deleteAddresses((string)$fieldArray['email'],$BE_USER->userTS["sni_newsletter_subscription."]["addressPid"]);
+			if(t3lib_div::validEmail($fieldArray['email']) && (string)$fieldArray['email'] && strlen($BE_USER->userTS["sni_newsletter_subscription."]["deleteDuplicateAddresesPid"]) > 0) {
+				t3lib_div::devLog('A BE-User created manually a fe_user or changed an email address of a fe_user. Delete all tt_address records with same email address ('.($BE_USER->userTS["sni_newsletter_subscription."]["deleteDuplicateAddresesPid"] ? 'where tt_address pid='.$BE_USER->userTS["sni_newsletter_subscription."]["deleteDuplicateAddresesPid"] : 'NO PID CHECK').')','sni_newsletter_subscription',1,$fieldArray);
+				Tx_SniNewsletterSubscription_Hooks_SrFeuserRegister::deleteAddresses((string)$fieldArray['email'],$BE_USER->userTS["sni_newsletter_subscription."]["deleteDuplicateAddresesPid"]);
 			}
         }
     }
