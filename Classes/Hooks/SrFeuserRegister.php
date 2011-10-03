@@ -33,10 +33,11 @@ class Tx_SniNewsletterSubscription_Hooks_SrFeuserRegister {
 	 * Lösche alle tt_address Einträge mit selber E-Mail Addresse
 	 */
 	public function registrationProcess_afterSaveCreate($newRow, &$parent) {
-		if(!$newRow['disable'] && strlen($parent->conf['deleteDuplicateAddresesPid']) > 0) {
+		$extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['sni_newsletter_subscription']);
+		if(!$newRow['disable'] && strlen($extConf['deleteDuplicateAddressPid']) > 0) {
 			// CREATE  --> wenn wir disabled sind dann müssen wir erster Confirmen bevor Adressen gelöscht werden sollen. siehe Hook unten
-			t3lib_div::devLog('A user has created an account (fe_user). Delete all tt_address records with same email address ('.($parent->conf['deleteDuplicateAddresesPid'] ? 'where tt_address pid='.$parent->conf['deleteDuplicateAddresesPid'] : 'NO PID CHECK').')','sni_newsletter_subscription',1,$newRow);
-			self::deleteAddresses($newRow['email'],$parent->conf['deleteDuplicateAddresesPid']);
+			t3lib_div::devLog('A user has created an account (fe_user). Delete all tt_address records with same email address ('.($extConf['deleteDuplicateAddressPid'] ? 'where tt_address pid='.$extConf['deleteDuplicateAddressPid'] : 'NO PID CHECK').')','sni_newsletter_subscription',1,$newRow);
+			self::deleteAddresses($newRow['email'],$extConf['deleteDuplicateAddressPid']);
 		}
 	}
 
@@ -44,9 +45,10 @@ class Tx_SniNewsletterSubscription_Hooks_SrFeuserRegister {
 	 * Hook wird aufgerufen nachdem Registration confirmed wurde (bei kickboxing nur bei INVITE ..)
 	 */
 	public function confirmRegistrationClass_postProcess($row, &$parent) {
-		if(strlen($parent->conf['deleteDuplicateAddresesPid']) > 0) {
-			t3lib_div::devLog('A user has confirmed his account (fe_user). Delete all tt_address records with same email address ('.($parent->conf['deleteDuplicateAddresesPid'] ? 'where tt_address pid='.$parent->conf['deleteDuplicateAddresesPid'] : 'NO PID CHECK').')','sni_newsletter_subscription',1,$row);
-			self::deleteAddresses($row['email'],$parent->conf['deleteDuplicateAddresesPid']);
+		$extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['sni_newsletter_subscription']);
+		if(strlen($extConf['deleteDuplicateAddressPid']) > 0) {
+			t3lib_div::devLog('A user has confirmed his account (fe_user). Delete all tt_address records with same email address ('.($extConf['deleteDuplicateAddressPid'] ? 'where tt_address pid='.$extConf['deleteDuplicateAddressPid'] : 'NO PID CHECK').')','sni_newsletter_subscription',1,$row);
+			self::deleteAddresses($row['email'],$extConf['deleteDuplicateAddressPid']);
 		}
 	}
 
@@ -60,7 +62,7 @@ class Tx_SniNewsletterSubscription_Hooks_SrFeuserRegister {
 	public static function deleteAddresses($email,$pid) {
 		$table = 'tt_address';
 		$where = 'email="'.(string)$email.'"';
-		if(intval($pid) && $pid != 'ALL') {
+		if(intval($pid) && strtoupper($pid) != 'ALL') {
 			$where .= ' AND pid='.intval($pid);
 		}
 		$GLOBALS['TYPO3_DB']->exec_DELETEquery($table,$where);		

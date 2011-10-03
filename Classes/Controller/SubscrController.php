@@ -160,6 +160,8 @@ class Tx_SniNewsletterSubscription_Controller_SubscrController extends Tx_Extbas
 		else {
 			$this->view->assign('firstCall', FALSE);
 		}
+		$extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['sni_newsletter_subscription']);
+		print_r($extConf);
 		$dmailCategoryRepository = t3lib_div::makeInstance('Tx_SniNewsletterSubscription_Domain_Repository_DmailCategoryRepository');
 		$categories = $dmailCategoryRepository->findByPid(explode(',',$this->settings['module_sys_dmail_category_PIDLIST']));
 		$this->view->assign('categories', $categories);

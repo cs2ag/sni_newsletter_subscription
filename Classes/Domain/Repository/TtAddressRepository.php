@@ -25,13 +25,18 @@ class Tx_SniNewsletterSubscription_Domain_Repository_TtAddressRepository extends
 
 	/**
 	 * Sucht in tt_address nach $email.
-	 * Normale Extbase PID Einstellungen greifen für tt_address Datensätze. Es kann somit nicht zu Konflikt mit anderen Extensions kommen kann die auch tt_address verwenden ...
+	 * Normale Extbase PID Einstellungen (storagePid) greifen für tt_address Datensätze. Es kann somit nicht zu Konflikt mit anderen Extensions kommen kann die auch tt_address verwenden ...
 	 * @param boolean $enableFields falls FALSE dann wird nur deleted=0 berücksichtigt (hidden wird ignoriert)
+	 * @return object
 	 */
 	public function findEmail($email,$enableFields=TRUE,$getFirst=TRUE) {
+		$extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['sni_newsletter_subscription']);
 		$query = $this->createQuery();		
 		$constraints = Array();
-		if(!$enableFields) {
+		if(!$extConf['checkForPid']) {
+			$query->getQuerySettings()->setRespectStoragePage(FALSE);
+		}
+		if(!$enableFields) {			
 			$query->getQuerySettings()->setRespectEnableFields(FALSE);
 			$constraints[] = $query->equals('deleted', 0);
 		}
@@ -45,9 +50,18 @@ class Tx_SniNewsletterSubscription_Domain_Repository_TtAddressRepository extends
 		}
 	}
 
+	/**
+	 * Sucht in tt_address nach $uid ohne Berücksichtigung von enableFields!
+	 * Normale Extbase PID Einstellungen (storagePid) greifen für tt_address Datensätze. Es kann somit nicht zu Konflikt mit anderen Extensions kommen kann die auch tt_address verwenden ...
+	 * @param integer $uid
+	 * @return object
+	 */
 	public function findAlsoHiddenByUid($uid) {
+		$extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['sni_newsletter_subscription']);
 		$query = $this->createQuery();
-		$query->getQuerySettings()->setRespectStoragePage(FALSE); // ohne dieser Anweisung werden versteckte Elemente nicht gefunden! (auch wenn PID stimmt) - Extbase Bug?
+		if(!$extConf['checkForPid']) {
+			$query->getQuerySettings()->setRespectStoragePage(FALSE);
+		}
 		$query->getQuerySettings()->setRespectEnableFields(FALSE);
 		$query->matching($query->logicalAnd(
 			$query->equals('deleted',0),
