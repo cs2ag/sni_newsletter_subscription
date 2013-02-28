@@ -54,7 +54,8 @@ class Tx_SniNewsletterSubscription_Controller_SubscrController extends Tx_Extbas
 							$dmailCategoryRepository = t3lib_div::makeInstance('Tx_SniNewsletterSubscription_Domain_Repository_DmailCategoryRepository');
 							$categories = $dmailCategoryRepository->findByUids(explode(',',t3lib_div::_GP('c')));
 							if(count($categories) > 0) {
-								$subscriber->addAllModuleSysDmailCategory($categories);
+                                $subscriber->setModuleSysDmailNewsletter(TRUE);
+								$subscriber->addAllModuleSysDmailCategory($categories);                               
 							}
 							else {
 								$this->view->assign('error',TRUE);
@@ -107,8 +108,9 @@ class Tx_SniNewsletterSubscription_Controller_SubscrController extends Tx_Extbas
 					$userRepository = t3lib_div::makeInstance('Tx_SniNewsletterSubscription_Domain_Repository_UserRepository');
 					$subscriber = $userRepository->findByUid($uid);
 					if($subscriber) {
+                        $subscriber->setModuleSysDmailNewsletter(FALSE);
 						if(count($subscriber->getModuleSysDmailCategory()) > 0) {
-							$subscriber->removeAllModuleSysDmailCategory();
+							$subscriber->removeAllModuleSysDmailCategory();                            
 						}
 					}
 					else {
